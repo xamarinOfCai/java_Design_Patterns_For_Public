@@ -19,6 +19,7 @@ public class Client {
         father.setNextHandler(husband);
         husband.setNextHandler(son);
 
+        //修改下测试
         for(IWomen woman : women){
             father.HandleMessage(woman);
         }
