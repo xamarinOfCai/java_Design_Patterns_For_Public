@@ -1,7 +1,5 @@
 package Caijingjin.Chapter12.DynamicProxy;
 
-import sun.util.resources.cldr.bas.CalendarData_bas_CM;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
