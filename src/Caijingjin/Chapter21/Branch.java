@@ -32,17 +32,22 @@ public class Branch implements IBranch {
         return info;
     }
 
-    @Override
-    public void add(IBranch branch) {
-        this.subordinateList.add(branch);
-    }
+//    @Override
+//    public void add(IBranch branch) {
+//        this.subordinateList.add(branch);
+//    }
 
     public void add(ILeaf leaf){
         this.subordinateList.add(leaf);
     }
 
     @Override
-    public ArrayList getSubordinateInfo() {
+    public ArrayList<ICorp> getSubordinateInfo() {
         return this.subordinateList;
+    }
+
+    @Override
+    public void addSubordinate(ICorp corp) {
+        this.subordinateList.add(corp);
     }
 }

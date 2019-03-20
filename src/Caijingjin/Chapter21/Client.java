@@ -5,7 +5,15 @@ import java.util.ArrayList;
 public class Client {
 
     public static void main(String[] args) {
-        IRoot ceo = new Root("网大码子","totalManager",100000);
+        Branch ceo = compositeCorpTree();
+        System.out.println(ceo.getInfo());
+        System.out.println(getTreeInfo(ceo));
+
+    }
+    public static Branch compositeCorpTree(){
+
+        Branch ceo = new Branch("网大码子","totalManager",100000);
+
         IBranch developDep = new Branch("liu da que zi","developer manager",10000);
         IBranch financeDep = new Branch("zhao san tuo zi","finiance ",30000);
         IBranch saleDep = new Branch("ma er guai zi","sale manager",20000);
@@ -26,32 +34,32 @@ public class Client {
         ILeaf k = new Leaf("k" ,"CEO secre",8000);
         ILeaf l = new Leaf("zheng loa liu" ,"developer leader",20000);
         ILeaf m = new Leaf("m" ,"developer",2000);
-        ceo.add(developDep);
-        ceo.add(financeDep);
-        ceo.add(saleDep);
+        ceo.addSubordinate(developDep);
+        ceo.addSubordinate(financeDep);
+        ceo.addSubordinate(saleDep);
 
-        ceo.add(k);
+        ceo.addSubordinate(k);
 
-        developDep.add(firstDevGroup);
-        developDep.add(secondDevGroup);
-        developDep.add(l);
+        developDep.addSubordinate(firstDevGroup);
+        developDep.addSubordinate(secondDevGroup);
+        developDep.addSubordinate(l);
 
-        firstDevGroup.add(a);
-        firstDevGroup.add(b);
-        firstDevGroup.add(c);
-        secondDevGroup.add(d);
-        secondDevGroup.add(e);
-        secondDevGroup.add(f);
+        firstDevGroup.addSubordinate(a);
+        firstDevGroup.addSubordinate(b);
+        firstDevGroup.addSubordinate(c);
+        secondDevGroup.addSubordinate(d);
+        secondDevGroup.addSubordinate(e);
+        secondDevGroup.addSubordinate(f);
 
-        saleDep.add(h);
-        saleDep.add(i);
+        saleDep.addSubordinate(h);
+        saleDep.addSubordinate(i);
         //fin
-        financeDep.add(j);
+        financeDep.addSubordinate(j);
 
-        System.out.println(ceo.getInfo());
+//        System.out.println(ceo.getInfo());
 
-        getAllSubordinateInfo(ceo.getSubbordinateInfo());
-
+//        getAllSubordinateInfo(ceo.getSubbordinateInfo());
+        return ceo;
 
 
     }
@@ -69,5 +77,18 @@ public class Client {
                 getAllSubordinateInfo(branch.getSubordinateInfo());
             }
         }
+    }
+
+    private static String getTreeInfo(Branch root){
+        ArrayList<ICorp>subOrdinateList = root.getSubordinateInfo();
+        String info = "";
+        for(ICorp s : subOrdinateList){
+            if(s instanceof Leaf){
+                info = info +s.getInfo()+"\n";
+            }else{
+                info = info + s.getInfo() +"\n"+getTreeInfo((Branch) s);
+            }
+        }
+        return info;
     }
 }
