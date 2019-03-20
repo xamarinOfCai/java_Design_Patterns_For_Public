@@ -9,7 +9,7 @@ public class Leaf implements ILeaf {
     //
     private String position = "";
 
-    //
+    //122
     private int salary = 0;
 
     public Leaf(String name, String position, int salary) {
