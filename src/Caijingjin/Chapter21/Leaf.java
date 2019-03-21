@@ -3,13 +3,13 @@ package Caijingjin.Chapter21;
 public class Leaf implements ILeaf {
 
 
-    //
+    //名称
     private String name ="";
 
-    //
+    //置为
     private String position = "";
 
-    //122
+    //薪水
     private int salary = 0;
 
     public Leaf(String name, String position, int salary) {
