@@ -1,4 +1,6 @@
-package Caijingjin.Chapter22;
+package Caijingjin.Chapter22.ObserverPattern;
+
+import Caijingjin.Chapter22.ObserverPattern.Observer;
 
 public class LiSi implements  Observer {
     @Override

@@ -1,4 +1,8 @@
-package Caijingjin.Chapter22;
+package Caijingjin.Chapter22.ObserverPattern;
+
+import Caijingjin.Chapter22.IHanFeiZi;
+import Caijingjin.Chapter22.ObserverPattern.Observable;
+import Caijingjin.Chapter22.ObserverPattern.Observer;
 
 import java.util.ArrayList;
 
@@ -40,8 +44,9 @@ public class HanFeiZi implements IHanFeiZi, Observable {
         this.notifyObserver("韩非子在娱乐！哈哈哈");
     }
 
-    //用来存放观察者
+    //用来存放观察者们
     private ArrayList<Observer>observerArrayList = new ArrayList<Observer>();
+
 
     @Override
     public void addObsever(Observer obsever) {
