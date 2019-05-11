@@ -1,6 +1,8 @@
 package caijingjin.Chapter36;
 
 /**
+ * 将产品和产品的事件联系起来了
+ *
  * @ClassName ProductManager
  * @Description TODO
  * @Author cjj
